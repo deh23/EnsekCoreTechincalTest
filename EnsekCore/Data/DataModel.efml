@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<efcore namespace="EnsekCore" p1:name="C__USERS_DEANH_ONEDRIVE_DOCUMENTS_ENSEK_MDFModel" p1:Guid="ca843c96-51a8-4061-8968-bfe41006886a" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
+  <class name="MeterReading" entity-set="MeterReadings" table="MeterReadings" schema="dbo" p1:Guid="b40191f2-a2d5-4c6c-ba29-7b0f27098b17">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="a0131922-1c50-4bee-9577-ddb14a450605">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="AccountId" type="Int32" p1:ValidateRequired="true" p1:Guid="55e1286c-fb15-4fe1-9a85-7ae0848b5b08">
+      <column name="AccountId" not-null="True" precision="10" scale="0" sql-type="int" unique-key="CK_UNQIUE_ROW" p1:unicode="False" />
+    </property>
+    <property name="MeterReadingDateTime" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="1b1ad610-81ce-40ed-8a19-7f6bed2d837a">
+      <column name="MeterReadingDateTime" not-null="True" length="50" sql-type="varchar" unique-key="CK_UNQIUE_ROW" p1:unicode="False" />
+    </property>
+    <property name="MeterReadValue" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="c6d43f6d-d764-4f97-bb4b-4ee8669eeddb">
+      <column name="MeterReadValue" not-null="False" length="50" sql-type="varchar" unique-key="CK_UNQIUE_ROW" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="User" entity-set="Users" table="Users" schema="dbo" p1:Guid="41d01c6f-c89c-4059-a8f2-7e97b3338633">
+    <id name="AccountId" type="Int32" p1:ValidateRequired="true" p1:Guid="723e7634-da51-46a4-8bb3-eee71d79bbed">
+      <column name="AccountId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="FirstName" type="String" p1:ValidateMaxLength="10" p1:ValidateRequired="true" p1:Guid="415760cb-8c8f-425a-9310-4f12bb5a7428">
+      <column name="FirstName" not-null="True" length="10" sql-type="nchar" p1:fixed-length="True" p1:unicode="True" />
+    </property>
+    <property name="LastName" type="String" p1:ValidateMaxLength="10" p1:ValidateRequired="true" p1:Guid="920b895e-ccdf-45e8-8b1e-629f7d812e79">
+      <column name="LastName" not-null="True" length="10" sql-type="nchar" p1:fixed-length="True" p1:unicode="True" />
+    </property>
+  </class>
+  <associations>
+    <association name="User_MeterReading" cardinality="OneToMany" p1:Guid="b573d907-12a1-46f1-8915-0f785711d5aa">
+      <end1 multiplicity="One" name="User" class="MeterReading" relation-class="User" constrained="True" lazy="False" p1:Guid="e3ebc9af-e680-491f-8ef6-3b45a6044b83">
+        <property name="AccountId" />
+      </end1>
+      <end2 multiplicity="Many" name="MeterReadings" class="User" relation-class="MeterReading" lazy="False" p1:Guid="d0b5cc7c-6e86-464b-80a7-2391e47df33b">
+        <property name="AccountId" />
+      </end2>
+    </association>
+  </associations>
+</efcore>

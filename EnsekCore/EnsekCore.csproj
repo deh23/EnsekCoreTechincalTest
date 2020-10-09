@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="NHibernate" Version="5.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Data\DataModel.C__USERS_DEANH_ONEDRIVE_DOCUMENTS_ENSEK_MDFModel.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataModel.efml</DependentUpon>
+    </Compile>
+    <Compile Update="Data\DataModel.MeterReading.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataModel.efml</DependentUpon>
+    </Compile>
+    <Compile Update="Data\DataModel.User.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataModel.efml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\DataModel.Diagram1.view">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataModel.efml</DependentUpon>
+    </None>
+    <None Update="Data\DataModel.edps">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataModel.efml</DependentUpon>
+    </None>
+    <None Update="Data\DataModel.efml">
+      <Generator>DevartEFCoreGenerator</Generator>
+      <LastGenOutput>DataModel.info</LastGenOutput>
+    </None>
+    <None Update="Data\DataModel.info">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataModel.efml</DependentUpon>
+    </None>
+  </ItemGroup>
+
+
+</Project>
